@@ -2,7 +2,7 @@
 name = "stratum-watcher"
 version = "0.1.0"
 description = ""
-authors = ["Andrew Chow <achow101-github@achow101.com>"]
+authors = ["Groestlcoin Developers <groestlcoin@gmail.com>"]
 license = "MIT"
 
 [tool.poetry.dependencies]

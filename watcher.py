@@ -53,7 +53,7 @@ class Watcher(Process):
             self.rpc_userpass = f.readline()
 
         # Open RPC connection
-        self.rpc = AuthServiceProxy(f"http://{self.rpc_userpass}@localhost:8332")
+        self.rpc = AuthServiceProxy(f"http://{self.rpc_userpass}@localhost:1441")
         self.last_seen_blockhash = self.rpc.getbestblockhash()
 
         self.init_socket()
@@ -152,14 +152,14 @@ class Watcher(Process):
                     prev_bh_stratum[0],
                 ).hex()
 
-                # Check that this is Bitcoin
+                # Check that this is Groestlcoin
                 if prev_bh != self.last_seen_blockhash:
-                    # If the blockhash doesn't match what we've cached, ask bitcoind
+                    # If the blockhash doesn't match what we've cached, ask groestlcoind
                     try:
                         self.rpc.getblockheader(prev_bh)
                         self.last_seen_blockhash = prev_bh
                     except JSONRPCException:
-                        LOG.debug(f"Received non-Bitcoin work, ignoring")
+                        LOG.debug(f"Received non-Groestlcoin work, ignoring")
                         continue
 
                 # Check for taproot versionbits
@@ -231,8 +231,8 @@ if __name__ == "__main__":
     parser.add_argument("--logfile", help="Log file to log to")
     parser.add_argument(
         "--rpccookiefile",
-        help="Cookie file for Bitcoin Core RPC creds",
-        default="~/.bitcoin/.cookie",
+        help="Cookie file for Groestlcoin Core RPC creds",
+        default="~/.groestlcoin/.cookie",
     )
     args = parser.parse_args()
 
