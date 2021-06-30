@@ -19,6 +19,8 @@ POOLS = [
     ["stratum+tcp://solo.phoenixmax.org:5555", "groestlcoin.wentaproot:x"],
     ["stratum+tcp://solo.phoenixmax.org:5666", "groestlcoin.wentaproot:x"],
     ["stratum+tcp://groestl.mining-dutch.nl:3514", "groestlcoin.wentaproot:x"],
+    ["stratum+tcp://asia.groestl.mining-dutch.nl:3514", "groestlcoin.wentaproot:x"],
+    ["stratum+tcp://americas.groestl.mining-dutch.nl:3514", "groestlcoin.wentaproot:x"],
 ]
 
 parser = argparse.ArgumentParser(
